@@ -96,7 +96,7 @@ ul.no-bullets {
 }
 
 footer {
-  background: #000 url("canvas4.png");
+  background: #000 url(image-path("canvas4.png"));
   background-repeat: repeat-x;
   color: #ccc;
   height: 100px; /* Remove this once we have content in footer */
