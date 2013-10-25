@@ -65,6 +65,20 @@ ul.dropdown-menu > li > a {
 
 @import "bootstrap";
 
+/* hack to make navbar-fixed-top span 100% of width */
+.navbar-static-top .navbar-inner {
+  margin-right: -40px;
+  margin-left: -40px;
+  margin-bottom: 20px; /* to prevent content from being too close to nav */
+}
+@media (max-width: 767px) {
+.navbar-static-top .navbar-inner {
+margin-right: -40px;
+margin-left: -40px;
+}
+}
+/* end navbar hack */
+
 a {
   color: $navbarBackground;
 }
