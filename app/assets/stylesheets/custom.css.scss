@@ -5,7 +5,8 @@ html, body {
   height: 100%;
 }
 
-$btnPrimaryBackground: #7295A1;
+//$btnPrimaryBackground: #7295A1;
+$btnPrimaryBackground: #555555;
 
 /* customize navbar */
 $navbarBackground:                #4A6169;
@@ -36,7 +37,8 @@ $dropdownLinkColor:             $grayDark !default;
 $dropdownLinkColorHover:        $white !default;*/
 $dropdownLinkBackgroundHover:   $navbarBackground;
 
-
+$topMenuBackground:		 #e2e2e2;
+ 
 .navbar .btn.search_btn {
   margin-top: 0px;
 }
@@ -46,8 +48,8 @@ $dropdownLinkBackgroundHover:   $navbarBackground;
 }
 
 .navbar ul > li > a {
-  border-left: 1px solid lighten($navbarBackground, 10%);
-  border-right: 1px solid darken($navbarBackground, 10%);
+  border-left: 1px solid lighten($navbarBackground, 5%);
+  border-right: 1px solid darken($navbarBackground, 5%);
 }
 
 ul.dropdown-menu > li > a {
@@ -67,15 +69,19 @@ ul.dropdown-menu > li > a {
 
 /* hack to make navbar-fixed-top span 100% of width */
 .navbar-static-top .navbar-inner {
-  margin-right: -40px;
-  margin-left: -40px;
+  margin-right: -20px;
+  margin-left: -20px;
   margin-bottom: 20px; /* to prevent content from being too close to nav */
 }
 @media (max-width: 767px) {
-.navbar-static-top .navbar-inner {
-margin-right: -40px;
-margin-left: -40px;
-}
+  .navbar-static-top .navbar-inner {
+    margin-right: -40px;
+    margin-left: -40px;
+    min-width: 940px;
+  }
+  footer {
+    min-width: 940px;
+  }
 }
 /* end navbar hack */
 
@@ -91,17 +97,24 @@ ul.no-bullets {
   list-style-type: none;
 }
 
-#page-title {
+a#page-title {
   color: #000;
+  padding: 0px 0px 0px 15px;
+  h4 {
+    display: inline-block;
+  }
 }
 
 .top-nav-links {
-  padding-top: 10px;
+  padding: 10px 10px 0px 0px;
+  display: inline-block;
   a {
-    color: $navbarBackground;
+    //color: $navbarBackground;
+    color: #555555;
     padding-left: 5px;
     &:hover {
       text-decoration: none;
+      color: #000000;
     }
   }
 }
@@ -122,6 +135,9 @@ footer {
   background: #000 asset-data-url("canvas4.png"); //7
   background-repeat: repeat-x;
   color: #ccc;
+  min-width: 940px;
+  padding-right: 11px;
+  padding-left: 11px;
 /*  height: 200px; /* Remove this once we have content in footer */
   h4 {
     text-align: center;
@@ -160,7 +176,7 @@ footer {
 }
 
 /* No idea why this doesn't get imported from bootstrap css */
-.breadcrumb {
+/*.breadcrumb {
   padding: 7px 14px;
   margin: 0 0 $baseLineHeight;
   list-style: none;
@@ -180,9 +196,71 @@ footer {
   .active a {
     color: $grayDark;
   }
-}
+}*/
 /* end breadcrumb */
 
 div.tweet_container {
   //border-bottom: 1px dotted #2e2e2e;
+}
+
+div.search-container {
+  padding: 0px 0px 5px 15px;
+  display: inline-block;
+//  background: #fff asset-data-url("middle_gradient.png");
+//  background-repeat: repeat-x;
+//  border-top: 1px solid #e2e2e2;
+//  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+//  -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+//  box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+div.top-menu-container {
+  height: 60px;
+  background: #fff asset-data-url("middle_gradient_60.png");
+  background-repeat: repeat-x;
+//  border-top: 1px solid #e2e2e2;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+div.top-menu-container-small {
+  height: 40px;
+  //position: fixed;
+  top: 0;
+  background: #fff asset-data-url("middle_gradient.png");
+  background-repeat: repeat-x;
+//  border-top: 1px solid #e2e2e2;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  z-index: 9999;
+}
+
+div.header-container {
+  height: 40px;  
+  .span4, .span3, .span5 {
+    margin: 0;
+  }
+}
+
+div.logo-container {
+  display: inline-block;
+  padding-bottom: 5px;  
+}
+
+div.left-top-header {
+  border-right: 1px solid darken($topMenuBackground, 10%);
+  height: 40px;
+}
+
+div.right-top-header {
+  border-left: 1px solid lighten($topMenuBackground, 10%);
+  height: 40px;
+}
+
+div.middle-top-header {
+  border-left: 1px solid lighten($topMenuBackground, 10%);
+  border-right: 1px solid darken($topMenuBackground, 10%);
+  height: 40px;
 }
