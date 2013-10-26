@@ -225,10 +225,10 @@ div.top-menu-container {
 }
 
 div.top-menu-container-small {
-  height: 40px;
+  height: 60px;
   //position: fixed;
   top: 0;
-  background: #fff asset-data-url("middle_gradient.png");
+  background: #fff asset-data-url("middle_gradient_60.png");
   background-repeat: repeat-x;
 //  border-top: 1px solid #e2e2e2;
   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.5);
@@ -238,7 +238,7 @@ div.top-menu-container-small {
 }
 
 div.header-container {
-  height: 40px;  
+  height: 60px;  
   .span4, .span3, .span5 {
     margin: 0;
   }
@@ -251,16 +251,16 @@ div.logo-container {
 
 div.left-top-header {
   border-right: 1px solid darken($topMenuBackground, 10%);
-  height: 40px;
+  height: 60px;
 }
 
 div.right-top-header {
   border-left: 1px solid lighten($topMenuBackground, 10%);
-  height: 40px;
+  height: 60px;
 }
 
 div.middle-top-header {
   border-left: 1px solid lighten($topMenuBackground, 10%);
   border-right: 1px solid darken($topMenuBackground, 10%);
-  height: 40px;
+  height: 60px;
 }
