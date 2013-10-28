@@ -76,14 +76,14 @@ ul.dropdown-menu > li > a:hover {
   background: transparent;
   outline: none;
   color: white;
-  background: url("overlay-highlight.png") repeat 50% 50%;
+  background: asset-data-url("overlay-highlight.png") repeat 50% 50%;
   -webkit-box-shadow:inset 0px 0px 0px 1px $borderHighlight;
   -moz-box-shadow:inset 0px 0px 0px 1px $borderHighlight;
   box-shadow:inset 0px 0px 0px 1px $borderHighlight;
 }
 
 .navbar-inner ul.nav > li > a:hover {
-    background: url("overlay-highlight.png") repeat 50% 50%;
+    background: asset-data-url("overlay-highlight.png") repeat 50% 50%;
     color: white;
     -webkit-box-shadow:inset 0px 0px 0px 1px $borderHighlight;
     -moz-box-shadow:inset 0px 0px 0px 1px $borderHighlight;
