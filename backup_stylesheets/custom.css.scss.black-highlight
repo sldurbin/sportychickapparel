@@ -10,15 +10,11 @@ $btnPrimaryBackground: #26b3f7;
 
 /* customize navbar */
 $navbarBackground:                #000;
-//ff8300
 $navbarBackgroundHighlight:       #474747;
 
 $navbarHoverColor: #0972a5;
 $borderHighlight: #26b3f7;
 
-/*$navbarText:                      #D7F1FA;
-$navbarLinkColor:                 #D7F1FA;
-$navbarLinkColorHover:            #D7F1FA;*/
 $navbarText:                      white;
 $navbarLinkColor:                 white;
 $navbarLinkColorHover:            white;
@@ -69,10 +65,12 @@ ul.dropdown-menu > li > a:hover {
   -webkit-box-shadow:inset 0px 0px 0px 1px $borderHighlight;
   -moz-box-shadow:inset 0px 0px 0px 1px $borderHighlight;
   box-shadow:inset 0px 0px 0px 1px $borderHighlight;
-
+  
 }
 
-
+span.badge-blue {
+  background-color: $navbarHoverColor;
+}
 
 /* Hack to prevent dropdown from remaining "hover"
    state when toggled off */
@@ -80,14 +78,17 @@ ul.dropdown-menu > li > a:hover {
   background: transparent;
   outline: none;
   color: white;
-  background: url("overlay-highlight.png") repeat 50% 50%;
+}
+
+.navbar .nav li.dropdown.open > .dropdown-toggle {
+  background: asset-data-url("overlay-highlight.png") repeat 50% 50%;
   -webkit-box-shadow:inset 0px 0px 0px 1px $borderHighlight;
   -moz-box-shadow:inset 0px 0px 0px 1px $borderHighlight;
   box-shadow:inset 0px 0px 0px 1px $borderHighlight;
 }
 
 .navbar-inner ul.nav > li > a:hover {
-    background: url("overlay-highlight.png") repeat 50% 50%;
+    background: asset-data-url("overlay-highlight.png") repeat 50% 50%;
     color: white;
     -webkit-box-shadow:inset 0px 0px 0px 1px $borderHighlight;
     -moz-box-shadow:inset 0px 0px 0px 1px $borderHighlight;
@@ -119,7 +120,7 @@ ul.dropdown-menu > li > a:hover {
 a {
   color: lighten($navbarBackground,30%);
   &:hover {
-    color: $borderHighlight;
+    color: $navbarBackground;
   }
 }
 
@@ -148,7 +149,7 @@ a#page-title {
     padding-left: 5px;
     &:hover {
       text-decoration: none;
-      color: $borderHighlight;
+      color: $navbarBackground;
     }
   }
 }

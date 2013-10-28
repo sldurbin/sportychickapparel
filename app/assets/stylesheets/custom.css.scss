@@ -65,10 +65,12 @@ ul.dropdown-menu > li > a:hover {
   -webkit-box-shadow:inset 0px 0px 0px 1px $borderHighlight;
   -moz-box-shadow:inset 0px 0px 0px 1px $borderHighlight;
   box-shadow:inset 0px 0px 0px 1px $borderHighlight;
-
+  
 }
 
-
+span.badge-blue {
+  background-color: $navbarHoverColor;
+}
 
 /* Hack to prevent dropdown from remaining "hover"
    state when toggled off */
@@ -76,6 +78,9 @@ ul.dropdown-menu > li > a:hover {
   background: transparent;
   outline: none;
   color: white;
+}
+
+.navbar .nav li.dropdown.open > .dropdown-toggle {
   background: asset-data-url("overlay-highlight.png") repeat 50% 50%;
   -webkit-box-shadow:inset 0px 0px 0px 1px $borderHighlight;
   -moz-box-shadow:inset 0px 0px 0px 1px $borderHighlight;
@@ -115,7 +120,7 @@ ul.dropdown-menu > li > a:hover {
 a {
   color: lighten($navbarBackground,30%);
   &:hover {
-    color: $borderHighlight;
+    color: $navbarBackground;
   }
 }
 
@@ -144,7 +149,7 @@ a#page-title {
     padding-left: 5px;
     &:hover {
       text-decoration: none;
-      color: $borderHighlight;
+      color: $navbarBackground;
     }
   }
 }
