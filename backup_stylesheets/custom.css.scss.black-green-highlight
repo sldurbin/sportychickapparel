@@ -5,15 +5,15 @@ html, body {
   height: 100%;
 }
 
-$btnPrimaryBackground: #26b3f7;
+$btnPrimaryBackground: #52cc29;
 //$btnPrimaryBackground: #555555;
 
 /* customize navbar */
 $navbarBackground:                #000;
 $navbarBackgroundHighlight:       #474747;
 
-$navbarHoverColor: #0972a5;
-$borderHighlight: #26b3f7;
+$navbarHoverColor: #52cc29;
+$borderHighlight: #66ff33;
 
 $navbarText:                      white;
 $navbarLinkColor:                 white;
@@ -81,14 +81,14 @@ span.badge-blue {
 }
 
 .navbar .nav li.dropdown.open > .dropdown-toggle {
-  background: asset-data-url("overlay-highlight.png") repeat 50% 50%;
+  background: asset-data-url("green-highlight.png") repeat 50% 50%;
   -webkit-box-shadow:inset 0px 0px 0px 1px $borderHighlight;
   -moz-box-shadow:inset 0px 0px 0px 1px $borderHighlight;
   box-shadow:inset 0px 0px 0px 1px $borderHighlight;
 }
 
 .navbar-inner ul.nav > li > a:hover {
-    background: asset-data-url("overlay-highlight.png") repeat 50% 50%;
+    background: asset-data-url("green-highlight.png") repeat 50% 50%;
     color: white;
     -webkit-box-shadow:inset 0px 0px 0px 1px $borderHighlight;
     -moz-box-shadow:inset 0px 0px 0px 1px $borderHighlight;
