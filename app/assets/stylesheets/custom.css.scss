@@ -97,6 +97,16 @@ span.badge-blue {
 
 /* end customize navbar */
 
+/* 2nd nav stuff (sidenav) */
+.nav > li > a:hover {
+  text-decoration: none;
+  background-color: #eeeeee;
+  -webkit-box-shadow:inset 0px 0px 0px 1px $borderHighlight;
+  -moz-box-shadow:inset 0px 0px 0px 1px $borderHighlight;
+  box-shadow:inset 0px 0px 0px 1px $borderHighlight;
+}
+/* end 2nd nav stuff */
+
 @import "bootstrap";
 
 /* hack to make navbar-fixed-top span 100% of width */
