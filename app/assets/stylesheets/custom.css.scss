@@ -177,8 +177,9 @@ a#page-title {
 
 footer {
   padding-top: 40px;
-  background: #000 asset-data-url("grey-linen2.png"); //7
+//  background: #000 asset-data-url("grey-linen2.png");
 //  background: #000 asset-data-url("seamless-black.png");
+  background: #000 asset-data-url("darker-grey-linen-5.png");
   background-repeat: repeat-x;
   color: #ccc;
   min-width: 940px;
