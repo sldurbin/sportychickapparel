@@ -10,11 +10,17 @@
       </div>
 
       <div class="span4">
-        <h4>Photos</h4>
+        <div class="social-content-container">
+          <h5>Photos</h5>
+          <% @instagram.each do |instagram| %>
+            <%= link_to( image_tag(instagram.images.standard_resolution.url, :width => '67px'), 
+              instagram.images.standard_resolution.url, :target => 'blank' ) %>
+          <% end %>
+        </div>
       </div>
 
       <div class="span4">
-        <h4>Social</h4>
+        <h5>Social</h5>
       </div>
     
     </div> <!-- end row -->

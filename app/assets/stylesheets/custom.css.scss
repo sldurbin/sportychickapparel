@@ -181,13 +181,14 @@ footer {
 //  background: #000 asset-data-url("seamless-black.png");
   background: #000 asset-data-url("darker-grey-linen-5.png");
   background-repeat: repeat-x;
-  color: #ccc;
+  color: #cfcfcf;
   min-width: 940px;
   padding-right: 11px;
   padding-left: 11px;
 /*  height: 200px; /* Remove this once we have content in footer */
-  h4 {
-    text-align: center;
+  h5 {
+    text-align: left;
+    margin-left: 38px;
     //padding-bottom: 15px;
     //border-bottom: 1px dotted #2e2e2e;  
   } 
@@ -198,6 +199,12 @@ footer {
     margin-bottom: 10px;
     border-top: #000 1px solid;
     border-bottom: #1c1c1c 1px solid;
+  }
+  div.social-content-container {
+    text-align: center;
+    img {
+      margin: 3px;
+    }
   }
 }
 
