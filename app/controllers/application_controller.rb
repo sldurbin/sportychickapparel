@@ -6,6 +6,6 @@ class ApplicationController < ActionController::Base
   before_filter :get_instagram_feed
 
   def get_instagram_feed
-    @instagram = Instagram.user_recent_media("631846379", {:count => 9})
+    @instagram = Instagram.user_recent_media("631846379", {:count => 3})
   end
 end
