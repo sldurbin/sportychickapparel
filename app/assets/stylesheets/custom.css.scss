@@ -168,11 +168,11 @@ a#page-title {
   min-height: 100%;
   height: auto !important;
   height: 100%;
-  margin: 0 auto -340px;
+  margin: 0 auto -350px;
 }
 
 #push {
-  height: 340px;
+  height: 350px;
 }
 
 footer {
@@ -188,10 +188,12 @@ footer {
 /*  height: 200px; /* Remove this once we have content in footer */
   h5 {
     text-align: left;
-    margin-left: 38px;
     //padding-bottom: 15px;
     //border-bottom: 1px dotted #2e2e2e;  
-  } 
+  }
+  h5#instagram-header {
+    margin-left: 28px;
+  }
   hr {
     border: 0;
     height: 0;
@@ -209,7 +211,7 @@ footer {
 }
 
 #bottom-footer {
-  height: 50px;
+  height: 60px;
 }
 
 #top-footer {
@@ -330,4 +332,8 @@ div.header-container {
 
 img#logo_img {
   margin-top: -12px;
+}
+
+.carousel-caption h3 {
+  color: #cfcfcf;
 }
