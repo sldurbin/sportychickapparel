@@ -7,6 +7,7 @@ Sportychickapparel::Application.routes.draw do
   get "comments/contact"
   resources :comments
   get "static_pages/about"
+  get "static_pages/shop"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

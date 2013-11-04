@@ -1,17 +1,56 @@
-<div class="row">
-  <div class="span3">
-
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#">Shirts<span class="badge badge-blue pull-right">3</span></a></li>
-      <li><a href="#">Pants<span class="badge badge-blue pull-right">4</span></a></li>
-      <li><a href="#">Outerwear<span class="badge badge-blue pull-right">1</span></a></li>
-      <li><a href="#">Accessories<span class="badge badge-blue pull-right">2</span></a></li>
-    </ul> 
-
+<div id="myCarousel" class="carousel slide">
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+    <div class="active item">
+      <%= image_tag("green-mosaic.png") %>
+      <div class="carousel-caption">
+        <h3>Mosaic</h3>
+        <p>This is a description.  It is the best description ever.  Like omg, totally I'm not even kidding</p>
+      </div>
+    </div>
+    <div class="item">
+      <%= image_tag("spiral.png") %>
+      <div class="carousel-caption">
+        <h3>Spiral</h3>
+        <p>This is a description.  It is the best description ever.  Like omg, totally I'm not even kidding</p>
+      </div>
+    </div>
+    <div class="item">
+      <%= image_tag("purple-pattern.png") %>
+      <div class="carousel-caption">
+        <h3>Pattern</h3>
+        <p>This is a description.  It is the best description ever.  Like omg, totally I'm not even kidding</p>
+      </div>
+    </div>
   </div>
+  <!-- Carousel nav -->
+  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
 
-  <div class="span9">
+<div class="row">
+<div class="span2"></div>
+<div class="span8">
+  <%= image_tag("slogan2.png", :id => "slogan-img") %>
+</div>
+<div class="span2"></div>
+</div>
 
+<hr class="dotted"/>
+
+<div class="row">
+  <div class="span12">
+    <%= image_tag("best-sellers.png") %>
+  </div>
+</div>
+
+<div class="row thumbnail-row">
+  <div class="span12">
     <ul class="thumbnails">
       <li class="span3">
         <div class="thumbnail coolshadow">
@@ -45,17 +84,6 @@
         </div>
       </li>
 
-      <li class="span3">
-        <div class="thumbnail coolshadow">
-          <%= image_tag("holder7.png") %>
-          <h4>Thumbnail label</h4>
-          <p>Thumbnail caption...</p>
-        </div>
-      </li>
-
-
     </ul> <!-- end breadcrumbs -->
-
-
   </div>
 </div>
