@@ -13,7 +13,7 @@
         <div class="social-content-container">
           <h5 id="instagram-header">Photos</h5>
           <% @instagram.each do |instagram| %>
-            <%= link_to( image_tag(instagram.images.standard_resolution.url, :width => '67px', :height => '67px'), 
+            <%= link_to( image_tag(instagram.images.standard_resolution.url, :style => 'width: 67px;'), 
               instagram.images.standard_resolution.url, :target => 'blank' ) %>
           <% end %>
         </div>
