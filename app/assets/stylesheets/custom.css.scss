@@ -66,9 +66,9 @@ ul.dropdown-menu > li > a:hover {
   color: white;
   background: $navbarBackground;
 //  background: url("overlay-highlight.png") repeat 50% 50%;
-  -webkit-box-shadow:inset 0px 0px 0px 1px $borderHighlight;
+  -webkit-box-shadow:inset 0px 0px 0px 2px $borderHighlight;
   -moz-box-shadow:inset 0px 0px 0px 1px $borderHighlight;
-  box-shadow:inset 0px 0px 0px 1px $borderHighlight;
+  box-shadow:inset 0px 0px 0px 2px $borderHighlight;
   
 }
 
@@ -370,4 +370,12 @@ ul.thumbnails li {
 .field_with_errors {
   @extend .control-group;
   @extend .error;
+}
+
+div.thumbnail-amazon {
+  text-align: center;
+}
+
+.alert {
+  text-align: center;
 }

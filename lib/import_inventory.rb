@@ -4,16 +4,16 @@ require "/home/sdurbin/ecommerce/sportychickapparel/config/environment.rb"
 input_file = "/home/sdurbin/Documents/sportyChickInventory.csv"
 
 def get_fan_gear_id(fan_gear, league_name, team_name)
-  return nil if fan_gear.nil? or fan_gear.empty? or league_name.nil? or league_name.emtpy? \
+  return nil if fan_gear.nil? or fan_gear.empty? or league_name.nil? or league_name.empty? \
     or team_name.nil? or team_name.empty?
 
-  league = League.find_or_create_by(league_name)
+  league = League.find_or_create_by_name(league_name)
   if Team.find_by_name(team_name).nil? 
-    team = Team.create!(:name => team_name, :league_id => league) 
+    team = Team.create!(:name => team_name, :league_id => league.id) 
   else
     team = Team.find_by_name(team_name)
   end
-  f = FanGear.create!(:league_id => league.id, :team_id => team.id)
+  f = FanGear.create!(:team_id => team.id)
   return f.id
 end
 
@@ -38,17 +38,19 @@ end
 File.readlines(input_file).each do |line|
   unless line =~ /^Apparel/
     line_items = line.split(',')
-    apparel_name = line_items[0]
-    shoe_name = line_items[1]
-    brand_name = line_items[2]
-    sport_name = line_items[3]
-    clearance = line_items[4]
-    fan_gear = line_items[5]
-    league = line_items[6]
-    team = line_items[7]
-    link = line_items[8]
-    image = line_items[9]
-    price = line_items[10]
+    apparel_name = line_items[0].strip
+    shoe_name = line_items[1].strip
+    brand_name = line_items[2].strip
+    sport_name = line_items[3].strip
+    clearance = line_items[4].strip
+    fan_gear = line_items[5].strip
+    league = line_items[6].strip
+    team = line_items[7].strip
+    link = line_items[8].strip
+    image = line_items[9].strip
+    price = line_items[10].strip
+    puts "Processing: #{apparel_name},#{shoe_name},#{brand_name},#{sport_name}, \
+      #{fan_gear},#{league},#{team}"
     process_line(apparel_name, shoe_name, brand_name, sport_name, 
                   clearance, fan_gear, league, team, link, image, price)
   end

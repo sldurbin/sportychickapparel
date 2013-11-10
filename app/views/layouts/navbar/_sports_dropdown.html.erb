@@ -1,0 +1,14 @@
+<% unless @sports.nil? %>
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">By Sport
+      <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+      <% @sports.each do |sport| %>
+        <li><%= link_to sport.to_s, :controller => 'shopping', :action => 'sports',
+              :sport_id => sport.id %></li>
+      <% end %>
+    </ul>
+  </li>
+<% end %>
+

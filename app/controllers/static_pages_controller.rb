@@ -3,6 +3,7 @@ class StaticPagesController < ApplicationController
   end
 
   def shop
+    @items = Item.all
   end
 
   def help

@@ -8,6 +8,9 @@ Sportychickapparel::Application.routes.draw do
   resources :comments
   get "static_pages/about"
   get "static_pages/shop"
+  get "shopping/apparel"
+  get "shopping/sports"
+  get "shopping/brands"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

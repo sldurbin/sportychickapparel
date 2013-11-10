@@ -12,50 +12,6 @@
 
   <div class="span9">
 
-    <ul class="thumbnails">
-      <li class="span3">
-        <div class="thumbnail coolshadow">
-          <%= image_tag("holder.png") %>
-          <h4>Thumbnail label</h4>
-          <p>Thumbnail caption...</p>
-        </div>
-      </li>
-
-      <li class="span3">
-        <div class="thumbnail coolshadow">
-          <%= image_tag("holder2.png") %>
-          <h4>Thumbnail label</h4>
-          <p>Thumbnail caption...</p>
-        </div>
-      </li>
-
-      <li class="span3">
-        <div class="thumbnail coolshadow">
-          <%= image_tag("holder4.png") %>
-          <h4>Thumbnail label</h4>
-          <p>Thumbnail caption...</p>
-        </div>
-      </li>
-
-      <li class="span3">
-        <div class="thumbnail coolshadow">
-          <%= image_tag("holder6.png") %>
-          <h4>Thumbnail label</h4>
-          <p>Thumbnail caption...</p>
-        </div>
-      </li>
-
-      <li class="span3">
-        <div class="thumbnail coolshadow">
-          <%= image_tag("holder7.png") %>
-          <h4>Thumbnail label</h4>
-          <p>Thumbnail caption...</p>
-        </div>
-      </li>
-
-
-    </ul> <!-- end breadcrumbs -->
-
+    <%= render 'shared/items', :items => @items %>
 
   </div>
-</div>
