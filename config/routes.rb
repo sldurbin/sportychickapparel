@@ -11,6 +11,7 @@ Sportychickapparel::Application.routes.draw do
   get "shopping/apparel"
   get "shopping/sports"
   get "shopping/brands"
+  get "shopping/fan_gear"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

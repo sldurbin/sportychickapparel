@@ -10,7 +10,7 @@ class CreateItems < ActiveRecord::Migration
       t.integer :brand_id
       t.integer :sport_id
       t.integer :clearance_id
-      t.integer :fan_gear_id
+      t.integer :team_id
 
       t.timestamps
     end

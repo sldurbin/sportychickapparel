@@ -4,7 +4,10 @@
        <span class="caret"></span>
      </a>
      <ul class="dropdown-menu">
-     
+       <% @leagues.each do |league| %>
+         <li><%= link_to league.to_s, :controller => 'shopping', :action => 'fan_gear',
+              :league_id => league.id %></li>           
+       <% end %> 
      </ul>
   </li>
 <% end %>

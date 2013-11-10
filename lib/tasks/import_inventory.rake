@@ -1,7 +1,4 @@
-#!/usr/bin/ruby
-require "/home/sdurbin/ecommerce/sportychickapparel/config/environment.rb"
-
-input_file = "/home/sdurbin/Documents/sportyChickInventory.csv"
+input_file = "#{Rails.root}/lib/data/sportyChickInventory.csv"
 
 def get_team_id(league_name, team_name)
   return if league_name.nil? or league_name.empty? or team_name.nil? or team_name.empty?
@@ -33,7 +30,7 @@ def process_line(apparel_name, shoe_name, brand_name, sport_name,
   i.save!
 end
 
-task :import_data do  
+task :import_data => :environment do  
   File.readlines(input_file).each do |line|
     unless line =~ /^Apparel/
       line_items = line.split(',')

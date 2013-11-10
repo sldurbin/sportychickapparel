@@ -29,4 +29,14 @@ class ShoppingController < ApplicationController
       redirect_to :root
     end
   end
+
+  def fan_gear 
+    begin
+      @items = League.find_by_id(params[:league_id]).items
+      render 'static_pages/shop'
+    rescue Exception => ex
+      flash[:error] = "Unable to display items: #{ex.to_s}"
+      redirect_to :root
+    end
+  end
 end

@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20131109210845) do
     t.integer  "brand_id"
     t.integer  "sport_id"
     t.integer  "clearance_id"
-    t.integer  "fan_gear_id"
+    t.integer  "team_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
