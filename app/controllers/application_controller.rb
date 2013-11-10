@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     @apparels = Apparel.all
     @sports = Sport.all
     @brands = Brand.all
-    @fan_gears = FanGear.all
+    @leagues = League.all
   end
 
 end
