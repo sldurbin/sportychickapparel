@@ -17,4 +17,9 @@
 //= require_tree .
 $(document).ready(function() {
   $('.dropdown-toggle').dropdown();
+
+  $('.checkable').bind('change',
+    function() {
+        $(this).parents('form:first').submit();
+    });
 });

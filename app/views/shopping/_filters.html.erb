@@ -1,0 +1,12 @@
+<h5>Filter by brand</h5>
+
+<%= form_tag("/shopping/brand_filter", remote: true) do |f| %>
+  <ul class="no-bullets">
+    <% @brands.each do |brand| %>
+      <li>
+        <%= check_box_tag brand.name, brand.id, false, :class => 'checkable' %>
+        <%= label_tag brand.name, brand.name.titleize, :style => "display:inline;" %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

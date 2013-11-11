@@ -1,17 +1,19 @@
 <div class="row">
   <div class="span3">
 
-    <ul class="nav nav-pills nav-stacked">
+<!--    <ul class="nav nav-pills nav-stacked">
       <li><a href="#">Shirts<span class="badge badge-blue pull-right">3</span></a></li>
       <li><a href="#">Pants<span class="badge badge-blue pull-right">4</span></a></li>
       <li><a href="#">Outerwear<span class="badge badge-blue pull-right">1</span></a></li>
       <li><a href="#">Accessories<span class="badge badge-blue pull-right">2</span></a></li>
-    </ul> 
+    </ul> -->
+    <%= render 'shopping/filters' %>
+    
 
   </div>
 
   <div class="span9">
-
+   
     <%= render 'shared/items', :items => @items %>
 
   </div>

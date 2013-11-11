@@ -4,6 +4,8 @@ ruby '1.9.3'
 
 gem 'rails', '4.0.0'
 gem 'bootstrap-sass', '2.3.2.0'
+gem 'will_paginate', '3.0.4'
+gem 'bootstrap-will_paginate', '0.0.9'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'
