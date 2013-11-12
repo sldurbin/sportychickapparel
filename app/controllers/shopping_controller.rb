@@ -14,7 +14,7 @@ class ShoppingController < ApplicationController
 
   def sports
     begin
-      @items = Sport.find_by_id(params[:sport_id]).items.paginate(:page => params[:page])
+      @items = Item.where(:sport_id => params[:sport_id]).paginate(:page => params[:page])
       @base_filter = "sport_id"
       @base_filter_id = params[:sport_id]
       render 'static_pages/shop'
@@ -26,7 +26,7 @@ class ShoppingController < ApplicationController
 
   def brands 
     begin
-      @items = Brand.find_by_id(params[:brand_id]).items.paginate(:page => params[:page])
+      @items = Item.where(:brand_id => params[:brand_id]).paginate(:page => params[:page])
       @base_filter = "brand_id"
       @base_filter_id = params[:brand_id]
       render 'static_pages/shop'
@@ -38,7 +38,8 @@ class ShoppingController < ApplicationController
 
   def fan_gear 
     begin
-      @items = League.find_by_id(params[:league_id]).items.paginate(:page => params[:page])
+      team_ids = League.find_by_id(params[:league_id]).teams.map{ |t| t.id }
+      @items = Item.where(:team_id => team_ids).paginate(:page => params[:page])
       @base_filter = "league_id"
       @base_filter_id = params[:league_id]
       render 'static_pages/shop'
@@ -56,16 +57,20 @@ class ShoppingController < ApplicationController
 
       (params[:brands].nil?  ? brands = Brand.all.map{ |b| b.id } : brands = params[:brands] ) if base_filter != "brand_id"
       (params[:sports].nil?  ? sports = Sport.all.map{ |s| s.id } : sports = params[:sports] ) if base_filter != "sport_id"
+      (params[:apparel].nil? ? apparel = Apparel.all.map{ |a| a.id } : apparel = params[:apparel] ) if base_filter != "apparel_id"
 
       if base_filter == "apparel_id" 
         @items = Item.where("apparel_id" => base_filter_id, \
           :brand_id => brands, :sport_id => sports).paginate(:page => params[:page])
       elsif base_filter == "brand_id"
         @items = Item.where("brand_id" => base_filter_id, \
-          :sport_id => sports).paginate(:page => params[:page])
+          :sport_id => sports, :apparel_id => apparel).paginate(:page => params[:page])
       elsif base_filter == "sport_id"
         @items = Item.where("sport_id" => base_filter_id, \
-          :brand_id => brands).paginate(:page => params[:page])
+          :brand_id => brands, :apparel_id => apparel).paginate(:page => params[:page])
+      elsif base_filter == "league_id"
+        @items = Item.where(:team_id => League.find_by_id(base_filter_id).teams.map{ |t| t.id }, :sport_id => sports, \
+          :brand_id => brands, :apparel_id => apparel).paginate(:page => params[:page])
       else 
 
       end

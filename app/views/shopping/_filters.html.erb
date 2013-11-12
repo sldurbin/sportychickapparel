@@ -2,6 +2,10 @@
   <%= hidden_field_tag "base_filter", @base_filter %>
   <%= hidden_field_tag "base_filter_id", @base_filter_id %>
 
+  <% if @base_filter == "brand_id" or @base_filter == "sport_id" or @base_filter == "league_id" %>
+    <%= render 'shopping/apparel_filter' %>
+  <% end %>
+
   <% if @base_filter == "apparel_id" or @base_filter == "sport_id" or @base_filter == "league_id" %> 
     <%= render 'shopping/brand_filter' %>
   <% end %>

@@ -1,0 +1,12 @@
+<!-- apparel -->
+<h5>Apparel</h5>
+
+<ul class="no-bullets">
+  <% @apparels.each do |apparel| %>
+    <li>
+      <%= check_box_tag "apparel[]", apparel.id, false, :class => 'checkable', :id => "apparel_#{apparel.id}" %>
+      <%= label_tag "apparel_#{apparel.id}", apparel.name.titleize, :style => "display:inline;" %>
+    </li>
+  <% end %>
+</ul>
+<!-- end apparel -->
