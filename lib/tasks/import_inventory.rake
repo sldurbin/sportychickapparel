@@ -30,7 +30,8 @@ def process_line(apparel_name, shoe_name, brand_name, sport_name,
   i.save!
 end
 
-task :import_data => :environment do  
+task :import_data => :environment do 
+  Item.destroy_all
   File.readlines(input_file).each do |line|
     unless line =~ /^Apparel/
       line_items = line.split(',')
