@@ -1,0 +1,12 @@
+<!-- sport -->
+<h5>Sport</h5>
+
+<ul class="no-bullets">
+  <% @sports.each do |sport| %>
+    <li>
+      <%= check_box_tag "sports[]", sport.id, false, :class => 'checkable', :id => "sport_#{sport.id}" %>
+      <%= label_tag "sport_#{sport.id}", sport.name.titleize, :style => "display:inline;" %>
+    </li>
+  <% end %>
+</ul>
+<!-- end sport -->

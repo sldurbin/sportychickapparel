@@ -15,11 +15,15 @@
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
-$(document).ready(function() {
+var ready;
+ready = function() {
   $('.dropdown-toggle').dropdown();
 
-  $('.checkable').bind('change',
+  $('.checkable').on('change',
     function() {
         $(this).parents('form:first').submit();
-    });
-});
+  });
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);

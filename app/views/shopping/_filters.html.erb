@@ -1,12 +1,13 @@
-<h5>Filter by brand</h5>
+<%= form_tag("/shopping/filter", remote: true) do |f| %>
+  <%= hidden_field_tag "base_filter", @base_filter %>
+  <%= hidden_field_tag "base_filter_id", @base_filter_id %>
 
-<%= form_tag("/shopping/brand_filter", remote: true) do |f| %>
-  <ul class="no-bullets">
-    <% @brands.each do |brand| %>
-      <li>
-        <%= check_box_tag brand.name, brand.id, false, :class => 'checkable' %>
-        <%= label_tag brand.name, brand.name.titleize, :style => "display:inline;" %>
-      </li>
-    <% end %>
-  </ul>
+  <% if @base_filter == "apparel_id" or @base_filter == "sport_id" or @base_filter == "league_id" %> 
+    <%= render 'shopping/brand_filter' %>
+  <% end %>
+
+  <% if @base_filer == "apparel_id" or @base_filter == "brand_id" or @base_filter == "league_id" %>
+    <%= render 'shopping/sport_filter' %>  
+  <% end %>
+
 <% end %>
