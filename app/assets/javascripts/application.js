@@ -29,6 +29,8 @@ ready = function() {
         $("div.loading").append('<p>Page is loading...</p>');
         $(this).parents('form:first').submit();
   });
+  
+  pagination_handler();
 
 };
 
