@@ -1,6 +1,9 @@
-<ul class="thumbnails">
+<div class="loading"></div>
+<ul id="thumbnail-container" class="thumbnails">
   <% items.each do |item| %>
     <%= render 'shared/item', :item => item %>
   <% end %>
 </ul>
-<%= will_paginate @items %>
+<div id="pagination-container">
+  <%= will_paginate @items %>
+</div>

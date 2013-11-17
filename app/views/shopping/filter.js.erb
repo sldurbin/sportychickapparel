@@ -1,1 +1,11 @@
-$("div#items-container").html("<%= escape_javascript(render('shared/items', items: @items)) %>");
+//$("div#items-container").html("<%= escape_javascript(render('shared/items', items: @items)) %>");
+var $holder = $("ul#thumbnail-conatiner");
+var $data = $holder.clone();
+$("div.loading").empty();
+$("body").append("<div id='hidden-items-container' style='display:none;'></div>");
+$("div#hidden-items-container").html("<%= escape_javascript(render('shared/items', items: @items)) %>");
+$("ul#thumbnail-container").quicksand($("div#hidden-items-container li"), {
+  'easing': 'swing'
+});
+$("div#hidden-items-container").remove();
+$("div#pagination-container").html("<%= escape_javascript(render('shared/paginate', collection: @items)) %>");

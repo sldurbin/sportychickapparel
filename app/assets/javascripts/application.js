@@ -17,12 +17,19 @@
 //= require_tree .
 var ready;
 ready = function() {
+
+  jQuery.browser={};(function(){jQuery.browser.msie=false;
+  jQuery.browser.version=0;if(navigator.userAgent.match(/MSIE ([0-9]+)\./)){
+  jQuery.browser.msie=true;jQuery.browser.version=RegExp.$1;}})();
+
   $('.dropdown-toggle').dropdown();
 
   $('.checkable').on('change',
-    function() {
+    function() { 
+        $("div.loading").append('<p>Page is loading...</p>');
         $(this).parents('form:first').submit();
   });
+
 };
 
 $(document).ready(ready);

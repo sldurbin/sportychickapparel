@@ -2,10 +2,13 @@ class ShoppingController < ApplicationController
 
   def apparel
     begin
-      @items = Item.where(:apparel_id => params[:apparel_id]).paginate(:page => params[:page])
+      @items = Item.where(:apparel_id => params[:apparel_id]).paginate(:page => params[:page], :per_page => 2)
       @base_filter = "apparel_id"
       @base_filter_id = params[:apparel_id]
-      render 'static_pages/shop'
+      respond_to do |format|
+        format.html { render 'shopping/shop' }
+        format.js { render 'filter' }
+      end
     rescue Exception => ex
       flash[:error] = "Unable to display items: #{ex.to_s}"
       redirect_to :root
@@ -17,7 +20,7 @@ class ShoppingController < ApplicationController
       @items = Item.where(:sport_id => params[:sport_id]).paginate(:page => params[:page])
       @base_filter = "sport_id"
       @base_filter_id = params[:sport_id]
-      render 'static_pages/shop'
+      render 'shopping/shop'
     rescue Exception => ex
       flash[:error] = "Unable to display items: #{ex.to_s}"
       redirect_to :root
@@ -29,7 +32,7 @@ class ShoppingController < ApplicationController
       @items = Item.where(:brand_id => params[:brand_id]).paginate(:page => params[:page])
       @base_filter = "brand_id"
       @base_filter_id = params[:brand_id]
-      render 'static_pages/shop'
+      render 'shopping/shop'
     rescue Exception => ex
       flash[:error] = "Unable to display items: #{ex.to_s}"
       redirect_to :root
@@ -42,7 +45,7 @@ class ShoppingController < ApplicationController
       @items = Item.where(:team_id => team_ids).paginate(:page => params[:page])
       @base_filter = "league_id"
       @base_filter_id = params[:league_id]
-      render 'static_pages/shop'
+      render 'shopping/shop'
     rescue Exception => ex
       flash[:error] = "Unable to display items: #{ex.to_s}"
       redirect_to :root
@@ -61,7 +64,7 @@ class ShoppingController < ApplicationController
 
       if base_filter == "apparel_id" 
         @items = Item.where("apparel_id" => base_filter_id, \
-          :brand_id => brands, :sport_id => sports).paginate(:page => params[:page])
+          :brand_id => brands, :sport_id => sports).paginate(:page => params[:page], :per_page => 2)
       elsif base_filter == "brand_id"
         @items = Item.where("brand_id" => base_filter_id, \
           :sport_id => sports, :apparel_id => apparel).paginate(:page => params[:page])
@@ -75,7 +78,7 @@ class ShoppingController < ApplicationController
 
       end
       respond_to do |format|
-        format.html { redirect_to '/static_pages/home' }
+        format.html { render 'shopping/shop' }
         format.js
       end
 #    rescue Exception => ex

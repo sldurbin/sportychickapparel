@@ -1,4 +1,4 @@
-<%= form_tag("/shopping/filter", remote: true) do |f| %>
+<%= form_tag("/shopping/filter", remote: true, id: "filter-form", autocomplete: 'off') do |f| %>
   <%= hidden_field_tag "base_filter", @base_filter %>
   <%= hidden_field_tag "base_filter_id", @base_filter_id %>
 
