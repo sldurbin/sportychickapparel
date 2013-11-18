@@ -9,3 +9,4 @@ $("ul#thumbnail-container").quicksand($("div#hidden-items-container li"), {
 });
 $("div#hidden-items-container").remove();
 $("div#pagination-container").html("<%= escape_javascript(render('shared/paginate', collection: @items)) %>");
+$currentSpinner.destroy();

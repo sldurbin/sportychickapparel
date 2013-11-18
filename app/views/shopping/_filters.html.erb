@@ -2,15 +2,15 @@
   <%= hidden_field_tag "base_filter", @base_filter %>
   <%= hidden_field_tag "base_filter_id", @base_filter_id %>
 
-  <% if @base_filter == "brand_id" or @base_filter == "sport_id" or @base_filter == "league_id" %>
+  <% if @base_filter == "Brands" or @base_filter == "Sports" or @base_filter == "Fan Gear" %>
     <%= render 'shopping/apparel_filter' %>
   <% end %>
 
-  <% if @base_filter == "apparel_id" or @base_filter == "sport_id" or @base_filter == "league_id" %> 
+  <% if @base_filter == "Apparel" or @base_filter == "Sports" or @base_filter == "Fan Gear" %> 
     <%= render 'shopping/brand_filter' %>
   <% end %>
 
-  <% if @base_filter == "apparel_id" or @base_filter == "brand_id" or @base_filter == "league_id" %>
+  <% if @base_filter == "Apparel" or @base_filter == "Brands" or @base_filter == "Fan Gear" %>
     <%= render 'shopping/sport_filter' %>  
   <% end %>
 

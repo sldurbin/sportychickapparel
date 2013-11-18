@@ -15,6 +15,11 @@
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
+
+function loading() {
+  unleashSpinner();
+}
+var $currentSpinner = null;
 var ready;
 ready = function() {
 
@@ -26,7 +31,7 @@ ready = function() {
 
   $('.checkable').on('change',
     function() { 
-        $("div.loading").append('<p>Page is loading...</p>');
+        loading();
         $(this).parents('form:first').submit();
   });
   

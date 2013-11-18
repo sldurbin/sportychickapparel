@@ -1,0 +1,142 @@
+/**
+ * creates the object Spinner with data values or default values in the case they are missing
+ * @param data
+ * @constructor
+ */
+function Spinner(data) {
+    //number of sectors of the spinner - default = 12
+    this.sectorsCount = data.sectorsCount || 12;
+    //the distance from each sector to the center - default = 70
+    this.centerRadius = data.centerRadius || 70;
+    //the length/height of each sector - default = 120
+    this.sectorLength = data.sectorLength || 120;
+    //the width of each sector of the spinner - default = 25
+    this.sectorWidth = data.sectorWidth || 25;
+    //color of the spinner - default = white
+    this.color = data.color || 'white';
+    //the opacity of the fullScreen
+    this.fullScreenOpacity = data.fullScreenOpacity;
+    //array of spinner sectors, each spinner is a svg path
+    this.sectors = [];
+    //array with the opacity of each sector
+    this.opacity = [];
+    //the raphael spinner object
+    this.spinnerObject = null;
+    //id of the timeout function for the rotating animation
+    this.spinnerTick = null;
+}
+
+Spinner.prototype.create = function() {
+    $("body").append("<div id='overlay'><div id='floater'><div id='spinner'><h3>Loading</h3></div></div></div>");
+    //shows the full screen spinner div
+    //$('#overlay').show();
+    //animates the opacity of the full screen div containing the spinner from 0 to 0.8
+    /*$('#overlay').animate({
+        opacity: this.fullScreenOpacity
+    }, 1000, function() {
+    });*/
+
+    //center point of the canvas/spinner/raphael object
+    var spinnerCenter = this.centerRadius + this.sectorLength + this.sectorWidth;
+    //angle difference/step between each sector
+    var beta = 2 * Math.PI / this.sectorsCount;
+    //params for each sector/path (stroke-color, stroke-width, stroke-linecap)
+    var pathParams = {
+        "stroke": this.color,
+        "stroke-width": this.sectorWidth,
+        "stroke-linecap": "round"
+    };
+    /**
+     * creates the Raphael object with a width and a height
+     * equals to the double of the spinner center
+     * “spinner” is the id of the div where the elements will be drawn
+     */
+    var paperSize = 2 * spinnerCenter;
+    this.spinnerObject = Raphael('spinner', paperSize, paperSize);
+
+    //builds the sectors and the respective opacity
+    for (var i = 0; i < this.sectorsCount; i++) {
+        //angle of the current sector
+        var alpha = beta * i;
+        var cos = Math.cos(alpha);
+        var sin = Math.sin(alpha);
+        //opacity of the current sector
+        this.opacity[i] = 1 / this.sectorsCount * i;
+        /**
+         * builds each sector, which in reality is a SVG path
+         * note that Upper case letter means that the command is absolute,
+         * lower case means relative to the current position.
+         * (http://www.w3.org/TR/SVG/paths.html#PathData)
+       * we move the "cursor" to the center of the spinner
+       * and add the centerRadius to center to move to the beginning of each sector
+         * and draws a line with length = sectorLength to the final point
+         * (which takes into account the current drawing angle)
+        */
+        this.sectors[i] = this.spinnerObject.path([
+            ["M", spinnerCenter + this.centerRadius * cos, spinnerCenter + this.centerRadius * sin],
+            ["l", this.sectorLength * cos, this.sectorLength * sin]
+        ]).attr(pathParams);
+    }
+
+    /**
+     * does an animation step and calls itself again
+     * @param spinnerObject this param needs to be passed
+     * because of scope changes when called through setTimeout function
+     */
+    (function animationStep(spinnerObject) {
+        //shifts to the right the opacity of the sectors
+        spinnerObject.opacity.unshift(spinnerObject.opacity.pop());
+        //updates the opacity of the sectors
+        for (var i = 0; i < spinnerObject.sectorsCount; i++) {
+            spinnerObject.sectors[i].attr("opacity", spinnerObject.opacity[i]);
+        }
+        /**
+         * safari browser helper
+         * There is an inconvenient rendering bug in Safari (WebKit):
+         * sometimes the rendering should be forced.
+         * This method should help with dealing with this bug.
+         * source: http://raphaeljs.com/reference.html#Paper.safari
+         */
+        spinnerObject.spinnerObject.safari();
+        /**
+         * calls the animation step again
+         * it's called in each second, the number of sectors the spinner has.
+         * So the spinner gives a round each second, independently the number of sectors it has
+         * note: doesn't work on IE passing parameter with the settimeout function :(
+         */
+        spinnerObject.spinnerTick = setTimeout(animationStep, 1000 / spinnerObject.sectorsCount, spinnerObject);
+    })(this);
+};//end of the create method
+
+/**
+ * destroys the spinner and hides the full screen div
+ */
+Spinner.prototype.destroy = function() {
+    //stops the animation function
+    clearTimeout(this.spinnerTick);
+    //removes the Raphael spinner object
+    this.spinnerObject.remove();
+    this.spinnerObject = null;
+    //animates the opacity of the div to 0 again and hides it (display:none) in the end
+    /*$('#overlay').animate({
+        opacity: 0
+    }, 2000, function() {
+        $('#overlay').hide();
+    });*/
+    $("#overlay").remove();
+};
+
+function unleashSpinner() {
+    var data = {};
+    data.centerRadius = 35;
+    data.sectorLength = 50;
+    data.sectorsCount = 10;
+    data.sectorWidth = 20;
+    data.color = 'black';
+    data.fullScreenOpacity = 0.5;
+    $currentSpinner = new Spinner(data);
+    $currentSpinner.create();
+    //setTimeout(function(){spinner.destroy();}, 6000);
+    return false;
+}
+
