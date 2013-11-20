@@ -363,6 +363,9 @@ div.thumbnail {
 
 div.desc-image-container {
   display: inline-block;
+  img {
+    max-width: 210px;
+  }
 }
 
 ul.thumbnails li {
