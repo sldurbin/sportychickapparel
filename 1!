@@ -38,10 +38,8 @@ ready = function() {
   pagination_handler();
 
   twttr.widgets.load();
-  FB.XFBML.parse();
-
+  FB.XFBML.parse(document.getElementById("fb-like-box"));
 };
-
 
 $(document).ready(ready);
 $(document).on('page:load', ready);
