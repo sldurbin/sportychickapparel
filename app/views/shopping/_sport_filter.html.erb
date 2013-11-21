@@ -1,12 +1,18 @@
 <!-- sport -->
-<h5>Sport</h5>
-
 <ul class="no-bullets">
-  <% @items.map{ |i| i.sport }.uniq.each do |sport| %>
-    <li>
-      <%= check_box_tag "sports[]", sport.id, false, :class => 'checkable', :id => "sport_#{sport.id}" %>
-      <%= label_tag "sport_#{sport.id}", sport.name.titleize, :style => "display:inline;" %>
-    </li>
-  <% end %>
+  <li>
+    <h5>Sport</h5>
+  </li>
+
+  <li>
+    <ul class="no-bullets">
+      <% @items.map{ |i| i.sport }.uniq.each do |sport| %>
+        <li>
+          <%= check_box_tag "sports[]", sport.id, false, :class => 'checkable', :id => "sport_#{sport.id}" %>
+          <%= label_tag "sport_#{sport.id}", sport.name.titleize, :style => "display:inline;" %>
+        </li>
+      <% end %>
+    </ul>
+  </li>
 </ul>
 <!-- end sport -->

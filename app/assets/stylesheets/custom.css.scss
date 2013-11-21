@@ -4,6 +4,7 @@
 html, body {
   height: 100%;
   background: #fff asset-data-url("white-subtle-background.png");
+  //background: #fff asset-data-url("dark-background.png");
 }
 
 
@@ -235,6 +236,10 @@ footer {
   -webkit-box-shadow: 0 2px 3px rgba(34, 25, 25, 0.5);
 }
 
+.breadcrumb li {
+  color: #404040 !important;
+  text-shadow: 0 1px 0 #999999;
+}
 /* No idea why this doesn't get imported from bootstrap css */
 /*.breadcrumb {
   padding: 7px 14px;
@@ -433,3 +438,39 @@ div.fb-like-box {
   width: 300px;
   text-align: left;
 }
+
+.sunkenPanel{
+    position: relative;
+//    background-color: rgba(0,0,0,0.05) !important;
+//    background-color: #eee !important;
+      background-color: #f3f6f7 !important;
+//    -webkit-box-shadow: inset 0px 3px 3px rgba(0,0,0,0.3);
+    -webkit-box-shadow: inset 0px 3px 3px #ababab;
+    -webkit-border-radius: 5px;
+//    -moz-box-shadow: inset 0px 3px 3px rgba(0,0,0,0.3);
+    -moz-border-radius: 5px;
+}
+ 
+/*.sunkenPanel:after{
+    position: absolute;
+    left: 0px;
+    top: 10px;
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    content: " ";
+}
+ 
+.sunkenPanel:before{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    -webkit-box-shadow: inset 0px -1px 1px rgba(255,255,255,0.5);
+    -webkit-border-radius: 5px;
+    -moz-box-shadow: inset 0px -1px 1px rgba(255,255,255,0.5);
+    -moz-border-radius: 5px;
+    height: 100%;   
+    content: " ";
+}*/

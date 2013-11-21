@@ -1,12 +1,18 @@
 <!-- brand -->
-<h5>Brand</h5>
-
 <ul class="no-bullets">
-  <% @items.map{ |i| i.brand }.uniq.each do |brand| %>
-    <li>
-      <%= check_box_tag "brands[]", brand.id, false, :class => 'checkable', :id => "brand_#{brand.id}" %>
-      <%= label_tag "brand_#{brand.id}", brand.name.titleize, :style => "display:inline;" %>
-    </li>
-  <% end %>
+  <li>
+    <h5>Brand</h5>
+  </li>
+
+  <li>
+    <ul class="no-bullets">
+      <% @items.map{ |i| i.brand }.uniq.each do |brand| %>
+        <li>
+          <%= check_box_tag "brands[]", brand.id, false, :class => 'checkable', :id => "brand_#{brand.id}" %>
+          <%= label_tag "brand_#{brand.id}", brand.name.titleize, :style => "display:inline;" %>
+        </li>
+      <% end %>
+    </ul>
+  </li>
 </ul>
 <!-- end brand -->
