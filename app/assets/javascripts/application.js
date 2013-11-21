@@ -37,11 +37,12 @@ ready = function() {
   
   pagination_handler();
 
-  twttr.widgets.load();
-  FB.XFBML.parse();
-
 };
 
+$(document).on('page:load', function() {
+  twttr.widgets.load();
+  FB.XFBML.parse();  
+});
 
 $(document).ready(ready);
 $(document).on('page:load', ready);
