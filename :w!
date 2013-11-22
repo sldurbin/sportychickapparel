@@ -239,8 +239,8 @@ footer {
 .breadcrumb li {
   //color: #404040 !important;
   //text-shadow: 0 1px 0 #999999;
-  color: #fff !important;
-  text-shadow: none !important;
+  color: #fff;
+  text-shadow: 0 1px 0 #f8f8f8;
 }
 /* No idea why this doesn't get imported from bootstrap css */
 /*.breadcrumb {
@@ -500,27 +500,6 @@ li.header {
     padding: 3px 0px 3px 8px; 
   }
 }
-
-.pretty-button-silver {
-  background-color: #e3e3e3;
-  background-image: -moz-linear-gradient(top, #fdfdfd, #e3e3e3);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fdfdfd), to(#e3e3e3));
-  background-image: -webkit-linear-gradient(top, #fdfdfd, #e3e3e3);
-  background-image: -o-linear-gradient(top, #fdfdfd, #e3e3e3);
-  background-image: linear-gradient(to bottom, #fdfdfd, #e3e3e3);
-  background-repeat: repeat-x;
-}
-
-.pretty-button-orange {
-  background-color: #ffb055;
-  background-image: -moz-linear-gradient(top, #ffc582, #ffb055);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffc582), to(#ffb055));
-  background-image: -webkit-linear-gradient(top, #ffc582, #ffb055);
-  background-image: -o-linear-gradient(top, #ffc582, #ffb055);
-  background-image: linear-gradient(to bottom, #ffc582, #ffb055);
-  background-repeat: repeat-x;
-}
-
 
 .pretty-button {
   background-color: #2697f7;
