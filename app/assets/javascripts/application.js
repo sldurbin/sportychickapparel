@@ -19,6 +19,21 @@
 function loading() {
   unleashSpinner();
 }
+
+function minimizableMenu() {
+  $(".expand").click(function() {
+    minimizable_element = $(this).parents("ul.minimizable").find("li.button-holder");
+    if( $(minimizable_element).is(":hidden") ) {
+      $(this).find("i").removeClass("icon-plus");
+      $(this).find("i").addClass("icon-minus");
+    }else {
+      $(this).find("i").removeClass("icon-minus");
+      $(this).find("i").addClass("icon-plus");
+    }
+    $(minimizable_element).slideToggle();
+  });
+}
+
 var $currentSpinner = null;
 var ready;
 ready = function() {
@@ -36,6 +51,8 @@ ready = function() {
   });
   
   pagination_handler();
+
+  minimizableMenu();
 
 };
 

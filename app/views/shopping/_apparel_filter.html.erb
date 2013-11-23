@@ -1,10 +1,11 @@
 <!-- apparel -->
-<ul class="no-bullets radio-container coolshadow">
+<ul class="no-bullets radio-container coolshadow minimizable">
   <li class="header pretty-button">
     <h5>Apparel</h5>
+    <span class="expand"><i class="icon-minus icon-white"></i></span>
   </li>
 
-  <li>
+  <li class="button-holder">
     <ul class="no-bullets">
       <% @items.map{ |i| i.apparel }.uniq.each do |apparel| %>
         <li>

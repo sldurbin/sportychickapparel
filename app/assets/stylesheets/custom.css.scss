@@ -483,8 +483,7 @@ div.fb-like-box {
 
 ul.radio-container {
   background-color: #f8f8f8;
-  margin: 0px;
-  padding-bottom: 20px;
+  margin: 0px 0px 10px 0px;
   border-radius: 5px;
   webkit-border-radius: 5px 5px 0px 0px;
   -moz-border-radius: 5px 5px 0px 0px;
@@ -497,8 +496,22 @@ li.header {
   -moz-border-radius: 5px 5px 0px 0px;
   background-color: #26b3f7;
   h5 {
+    margin: 0px;
     padding: 3px 0px 3px 8px; 
+    display: inline-block;
   }
+  .expand {
+    float: right;
+    cursor: pointer;
+    padding: 2px 7px;
+    i {
+      color: #fff;
+    }
+  }
+}
+
+li.button-holder {
+  padding: 10px 0px 10px 0px;
 }
 
 .pretty-button-silver {
@@ -536,6 +549,6 @@ input {
     vertical-align: text-bottom;
 }
 
-#filter-form {
-  margin-top: -10px;
+.minimizable {
+  overflow: hidden;
 }
