@@ -112,9 +112,16 @@ span.badge-blue {
 }
 /* end 2nd nav stuff */
 
+[class^="icon-"],
+[class*=" icon-"] {
+ background-image: asset-data-url("glyphicons-halflings.png");
+}
+
+
+
 /* Fix problem with icons in heroku */
-$iconSpritePath:          asset-path("glyphicons-halflings.png");
-$iconWhiteSpritePath:     asset-path("glyphicons-halflings-white.png");
+//$iconSpritePath:          asset-path("glyphicons-halflings.png");
+//$iconWhiteSpritePath:     asset-path("glyphicons-halflings-white.png");
 
 @import "bootstrap";
 
