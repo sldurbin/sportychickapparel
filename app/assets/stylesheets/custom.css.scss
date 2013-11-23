@@ -114,12 +114,12 @@ span.badge-blue {
 
 [class^="icon-"],
 [class*=" icon-"] {
- background: transparent asset-data-url("glyphicons-halflings.png");
+ background: transparent asset-data-url("glyphicons-halflings.png") !important;
 }
 
 [class^="icon-white"],
 [class*=" icon-white"] {
- background: transparent asset-data-url("glyphicons-halflings-white.png");
+ background: transparent asset-data-url("glyphicons-halflings-white.png") !important;
 }
 
 /* Fix problem with icons in heroku */
