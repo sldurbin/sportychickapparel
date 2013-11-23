@@ -8,7 +8,7 @@ html, body {
 }
 
 
-$btnPrimaryBackground: #fd5252; //#26b3f7;
+$btnPrimaryBackground: #26b3f7;
 //$btnPrimaryBackground: #555555;
 $navLink: #555555;
 $dashLineColor: #b5b5b5;
@@ -113,8 +113,8 @@ span.badge-blue {
 /* end 2nd nav stuff */
 
 /* Fix problem with icons in heroku */
-$iconSpritePath:          asset-url("glyphicons-halflings.png",'image');
-$iconWhiteSpritePath:     asset-url("glyphicons-halflings-white.png",'image');
+$iconSpritePath:          asset-path("glyphicons-halflings.png");
+$iconWhiteSpritePath:     asset-path("glyphicons-halflings-white.png");
 
 @import "bootstrap";
 
