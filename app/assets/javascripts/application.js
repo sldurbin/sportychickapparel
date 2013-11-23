@@ -16,21 +16,25 @@
 //= require bootstrap
 //= require_tree .
 
-function loading() {
-  unleashSpinner();
-}
 
 function minimizableMenu() {
   $(".expand").click(function() {
+    expand_element = $(this);
+    if( expand_element.data('dont') == 1 ) return; 
+    expand_element.data('dont',1);
     minimizable_element = $(this).parents("ul.minimizable").find("li.button-holder");
     if( $(minimizable_element).is(":hidden") ) {
-      $(this).find("i").removeClass("icon-plus");
-      $(this).find("i").addClass("icon-minus");
+      expand_element.find("i").removeClass("icon-plus");
+      expand_element.find("i").addClass("icon-minus");
     }else {
-      $(this).find("i").removeClass("icon-minus");
-      $(this).find("i").addClass("icon-plus");
+      expand_element.find("i").removeClass("icon-minus");
+      expand_element.find("i").addClass("icon-plus");
     }
-    $(minimizable_element).slideToggle();
+    $(minimizable_element).slideToggle(function() {
+
+    }, function() {
+      expand_element.data('dont',0);
+    });
   });
 }
 
@@ -46,7 +50,7 @@ ready = function() {
 
   $('.checkable').on('change',
     function() { 
-        loading();
+        unleashSpinner();
         $(this).parents('form:first').submit();
   });
   
