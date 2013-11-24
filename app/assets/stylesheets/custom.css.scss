@@ -115,13 +115,13 @@ span.badge-blue {
 [class^="icon-"],
 [class*=" icon-"] {
  //background: transparent asset-data-url("glyphicons-halflings.png") !important;
- background-image: asset-data-url("glyphicons-halflings.png");
+ background-image: asset-data-url("glyphicons-halflings.png") !important;
 }
 
 [class^="icon-white"],
 [class*=" icon-white"] {
  //background: transparent asset-data-url("glyphicons-halflings-white.png") !important;
- background-image: asset-data-url("glyphicons-halflings-white.png");
+ background-image: asset-data-url("glyphicons-halflings-white.png") !important;
 }
 
 /* Test*/
