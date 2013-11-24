@@ -112,20 +112,22 @@ span.badge-blue {
 }
 /* end 2nd nav stuff */
 
-/*[class^="icon-"],
+[class^="icon-"],
 [class*=" icon-"] {
- background: transparent asset-data-url("glyphicons-halflings.png") !important;
+ //background: transparent asset-data-url("glyphicons-halflings.png") !important;
+ background-image: asset-data-url("glyphicons-halflings.png");
 }
 
 [class^="icon-white"],
 [class*=" icon-white"] {
- background: transparent asset-data-url("glyphicons-halflings-white.png") !important;
-}*/
+ //background: transparent asset-data-url("glyphicons-halflings-white.png") !important;
+ background-image: asset-data-url("glyphicons-halflings-white.png");
+}
 
 /* Test*/
 /* Fix problem with icons in heroku */
-$iconSpritePath:          asset-path("glyphicons-halflings.png");
-$iconWhiteSpritePath:     asset-path("glyphicons-halflings-white.png");
+//$iconSpritePath:          asset-path("glyphicons-halflings.png");
+//$iconWhiteSpritePath:     asset-path("glyphicons-halflings-white.png");
 
 @import "bootstrap";
 
