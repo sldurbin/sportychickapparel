@@ -1,0 +1,21 @@
+<!-- shoes -->
+<% unless @all_items.map{ |i| i.shoe }.delete_if{ |i| i.nil? }.uniq.empty? %>
+  <ul class="no-bullets radio-container coolshadow minimizable">
+    <li class="header pretty-button">
+      <h5>Shoes</h5>
+      <span class="expand"><i class="icon-minus icon-white"></i></span>
+    </li>
+  
+    <li class="button-holder">
+      <ul class="no-bullets">
+        <% @all_items.map{ |i| i.shoe }.delete_if{ |i| i.nil? }.uniq.each do |shoe| %>
+          <li>
+            <%= check_box_tag "shoes[]", shoe.id, false, :class => 'checkable', :id => "shoe_#{shoe.id}" %>
+            <%= label_tag "shoe_#{shoe.id}", shoe.name.titleize, :style => "display:inline;" %>
+          </li>
+        <% end %>
+      </ul>
+    </li>
+  </ul>
+  <!-- end shoes -->
+<% end %>

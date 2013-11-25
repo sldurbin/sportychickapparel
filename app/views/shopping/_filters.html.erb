@@ -9,12 +9,16 @@
     <%= render 'shopping/apparel_filter' %>
   <% end %>
 
-  <% if @base_filter == "Apparel" or @base_filter == "Sports" or @base_filter == "Fan Gear" %> 
+  <% if @base_filter == "Apparel" or @base_filter == "Sports" or @base_filter == "Fan Gear" or @base_filter == "Shoes" %> 
     <%= render 'shopping/brand_filter' %>
   <% end %>
 
-  <% if @base_filter == "Apparel" or @base_filter == "Brands" or @base_filter == "Fan Gear" %>
+  <% if @base_filter == "Apparel" or @base_filter == "Brands" or @base_filter == "Fan Gear" or @base_filter == "Shoes" %>
     <%= render 'shopping/sport_filter' %>  
+  <% end %>
+
+  <% if @base_filter == "Brands" or @base_filter == "Sports" or @base_filter == "Fan Gear" %>
+    <%= render 'shopping/shoe_filter' %>
   <% end %>
 
 <% end %>

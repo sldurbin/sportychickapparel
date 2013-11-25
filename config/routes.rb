@@ -9,6 +9,7 @@ Sportychickapparel::Application.routes.draw do
   get "static_pages/about"
   get "shopping/shop"
   get "shopping/apparel"
+  get "shopping/shoes"
   get "shopping/sports"
   get "shopping/brands"
   get "shopping/fan_gear"

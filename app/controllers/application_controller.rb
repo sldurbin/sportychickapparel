@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
 
   def setup_menu
     @apparels = Apparel.all
+    @shoes = Shoe.all
     @sports = Sport.all
     @brands = Brand.all
     @leagues = League.all

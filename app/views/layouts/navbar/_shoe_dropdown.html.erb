@@ -1,3 +1,13 @@
 <% unless @shoes.nil? %>
-  <li><a href="#">Shoes</a></li>
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Shoes
+      <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+      <% @shoes.each do |shoe| %>
+        <li><%= link_to shoe.to_s.pluralize, :controller => 'shopping', :action => 'shoes',
+              :shoe_id => shoe.id %></li>
+      <% end %>
+    </ul>
+  </li>
 <% end %>
