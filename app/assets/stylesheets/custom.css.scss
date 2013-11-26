@@ -569,3 +569,11 @@ input {
 .minimizable {
   overflow: hidden;
 }
+
+p.cc-credit {
+  font-size: 10px; 
+  float: right;
+  a:hover {
+    color: #565656;
+  }
+}
