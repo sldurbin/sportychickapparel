@@ -1,6 +1,4 @@
-class Comment < ActiveRecord::Base
-  validates :name,  length: { maximum: 50 }
+class Subscriber < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, length: { maximum: 254 }
-  validates :content, presence: true, length: { maximum: 500 }
 end

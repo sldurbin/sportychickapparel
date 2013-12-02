@@ -6,6 +6,7 @@ Sportychickapparel::Application.routes.draw do
   get "static_pages/contact"
   get "comments/contact"
   resources :comments
+  post "static_pages/subscribe"
   get "static_pages/about"
   get "shopping/shop"
   get "shopping/apparel"

@@ -5,6 +5,7 @@
     <li data-target="#myCarousel" data-slide-to="2"></li>
   </ol>
   <!-- Carousel items -->
+  <div class="carousel-container">
   <div class="carousel-inner" style="background-color: #111717;">
     <div class="active item">
       <div class="container">
@@ -18,8 +19,7 @@
       </div>
       <div class="carousel-caption">
         <div class="container">
-          <h3>Golf</h3>
-          <p>Find the hottest golf apparel to play comfortably in the cold weather!</p>
+          <h4>Find the hottest name<br/>brand apparel.</h4>
         </div>
       </div>
     </div>
@@ -35,8 +35,7 @@
       </div>
       <div class="carousel-caption">
         <div class="container">
-          <h3>Running</h3>
-          <p>Find the most comfortable running clothes for you.</p>
+          <h4>No matter what sport you play.</h4>
           <p class="cc-credit">Photo credit <a href="https://www.flickr.com/photos/chrishunkeler/8049103309/">Chris Hunkeler</a> under <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a></p>
         </div>
       </div>
@@ -51,8 +50,7 @@
       </div>
       <div class="carousel-caption">
         <div class="container">
-          <h3>Tennis</h3>
-          <p>Dress in the coolest gear, just like your favorite athletes!</p>
+          <h4>Dress in the coolest gear, just like<br/>your favorite athletes!</h4>
           <p class="cc-credit">Photo credit <a href="http://www.flickr.com/photos/la_bretagne_a_paris/">Yann Caradec</a> under <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a></p>
         </div>
       </div>
@@ -62,6 +60,7 @@
   <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
   <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 </div>
+</div> <!-- end carousel container -->
 
 <div class="container">
 
@@ -84,49 +83,58 @@
 <div class="row thumbnail-row">
   <div class="span12">
     <ul class="thumbnails">
-      <li class="span3">
-        <div class="thumbnail coolshadow thumbnail-amazon">
-          <div class="desc-image-container">
-            <%= image_tag("holder.png") %>
-            <h4>Thumbnail label</h4>
-            <p>Thumbnail caption...</p>
-          </div>
-        </div>
-      </li>
-
-      <li class="span3">
-        <div class="thumbnail coolshadow thumbnail-amazon">
-          <div class="desc-image-container">
-            <%= image_tag("holder2.png") %>
-            <h4>Thumbnail label</h4>
-            <p>Thumbnail caption...</p>
-          </div>
-        </div>
-      </li>
-
-      <li class="span3">
-        <div class="thumbnail coolshadow thumbnail-amazon">
-          <div class="desc-image-container">
-            <%= image_tag("holder4.png") %>
-            <h4>Thumbnail label</h4>
-            <p>Thumbnail caption...</p>
-          </div>
-        </div>
-      </li>
-
-      <li class="span3">
-        <div class="thumbnail coolshadow thumbnail-amazon">
-          <div class="desc-image-container">
-            <%= image_tag("holder6.png") %>
-            <h4>Thumbnail label</h4>
-            <p>Thumbnail caption...</p>
-          </div>
-        </div>
-      </li>
-
+      <% @best_sellers.each do |item| %>
+        <%= render 'shared/item', :item => item %>
+      <% end %>
     </ul> <!-- end breadcrumbs -->
   </div>
 </div> <!-- end thumbnail row -->
 
-
 </div> <!-- end container -->
+
+<div id="email-container">
+  <div class="container">
+    <div id="mailing-list-container">
+      <h1 style="font-family: Wire One, sans serif;">Sign up for our newsletter!</h1>
+      <%= form_for(@subscriber, :url => { :action => "subscribe" } ) do |f| %>
+        <%= f.text_field :email, :style => "margin-top: 9px;" %>
+        <%= f.submit "Join", :class => "btn btn-inverse" %>
+      <% end %>    
+    </div>
+    <div id="mailing-list-explanation" class="sunkenPanel">
+      <div id="mailing-list-explanation-inner">
+        <p>
+          Don't miss out!  Subscribe to the SportyChick Newsletter and be the first to hear about:
+          <ul>
+            <li>New Releases</li>
+            <li>Discounts and Deals</li>
+            <li>The latest trends in women's sports!</li>
+          </ul>
+        </p> 
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
+
+<br/>
+
+<div class="container">
+
+<div class="row">
+  <div class="span12">
+    <%= image_tag("new_arrivals.png") %>
+  </div>
+</div>
+
+<div class="row thumbnail-row">
+  <div class="span12">
+    <ul class="thumbnails">
+      <% @new_items.each do |item| %>
+        <%= render 'shared/item', :item => item %>
+      <% end %>
+    </ul> <!-- end breadcrumbs -->
+  </div>
+</div> <!-- end thumbnail row -->
+</div> <!-- end container -->
+
