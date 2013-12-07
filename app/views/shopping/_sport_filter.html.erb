@@ -7,9 +7,10 @@
 
   <li class="button-holder">
     <ul class="no-bullets">
-      <% @all_items.map{ |i| i.sport }.uniq.each do |sport| %>
+      <% @sport_filters.each do |sport| %>
         <li>
-          <%= check_box_tag "sports[]", sport.id, false, :class => 'checkable', :id => "sport_#{sport.id}" %>
+          <%= check_box_tag "sports[]", sport.id, false, :class => 'checkable', :id => "sport_#{sport.id}",
+              :disabled => @sport_disabled, :checked => @sport_disabled %>
           <%= label_tag "sport_#{sport.id}", sport.name.titleize, :style => "display:inline;" %>
         </li>
       <% end %>

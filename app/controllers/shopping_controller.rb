@@ -3,6 +3,13 @@ class ShoppingController < ApplicationController
   def apparel
     begin
       @all_items = Item.where(:apparel_id => params[:apparel_id])
+      @brand_filters = @all_items.map{ |i| i.brand }.uniq
+      @brand_disabled = ((@brand_filters.size == 1) and (@all_items.all?{ |ai| ai.brand == @brand_filters.first }))
+      @sport_filters = @all_items.map{ |i| i.sport }.uniq
+      @sport_disabled = ((@sport_filters.size == 1) and (@all_items.all?{ |ai| ai.sport == @sport_filters.first }))
+      @shoe_filters = @all_items.map{ |i| i.shoe }.delete_if{ |i| i.nil? }.uniq
+      @shoe_disabled = ((@shoe_filters.size == 1) and (@all_items.all?{ |ai| ai.shoe == @shoe_filters.first }))
+
       @items = @all_items.paginate(:page => params[:page])
       @base_filter = "Apparel"
       @base_filter_id = params[:apparel_id]
@@ -20,6 +27,13 @@ class ShoppingController < ApplicationController
   def shoes
     begin
       @all_items = Item.where(:shoe_id => params[:shoe_id])
+      @apparel_filters = @all_items.map{ |i| i.apparel }.delete_if{ |i| i.nil? }.uniq
+      @apparel_disabled = ((@apparel_filters.size == 1) and (@all_items.all?{ |ai| ai.apparel == @apparel_filters.first }))
+      @brand_filters = @all_items.map{ |i| i.brand }.uniq
+      @brand_disabled = ((@brand_filters.size == 1) and (@all_items.all?{ |ai| ai.brand == @brand_filters.first }))
+      @sport_filters = @all_items.map{ |i| i.sport }.uniq
+      @sport_disabled = ((@sport_filters.size == 1) and (@all_items.all?{ |ai| ai.sport == @sport_filters.first }))
+
       @items = @all_items.paginate(:page => params[:page])
       @base_filter = "Shoes"
       @base_filter_id = params[:shoe_id]
@@ -37,6 +51,15 @@ class ShoppingController < ApplicationController
   def sports
     begin
       @all_items = Item.where(:sport_id => params[:sport_id])
+      @apparel_filters = @all_items.map{ |i| i.apparel }.delete_if{ |i| i.nil? }.uniq
+      @apparel_disabled = ((@apparel_filters.size == 1) and (@all_items.all?{ |ai| ai.apparel == @apparel_filters.first }))
+      @brand_filters = @all_items.map{ |i| i.brand }.uniq
+      @brand_disabled = ((@brand_filters.size == 1) and (@all_items.all?{ |ai| ai.brand == @brand_filters.first }))
+      @sport_filters = @all_items.map{ |i| i.sport }.uniq
+      @sport_disabled = ((@sport_filters.size == 1) and (@all_items.all?{ |ai| ai.sport == @sport_filters.first }))
+      @shoe_filters = @all_items.map{ |i| i.shoe }.delete_if{ |i| i.nil? }.uniq
+      @shoe_disabled = ((@shoe_filters.size == 1) and (@all_items.all?{ |ai| ai.shoe == @shoe_filters.first }))
+
       @items = @all_items.paginate(:page => params[:page])
       @base_filter = "Sports"
       @base_filter_id = params[:sport_id]
@@ -54,6 +77,13 @@ class ShoppingController < ApplicationController
   def brands 
     begin
       @all_items = Item.where(:brand_id => params[:brand_id])
+      @apparel_filters = @all_items.map{ |i| i.apparel }.delete_if{ |i| i.nil? }.uniq
+      @apparel_disabled = ((@apparel_filters.size == 1) and (@all_items.all?{ |ai| ai.apparel == @apparel_filters.first }))
+      @sport_filters = @all_items.map{ |i| i.sport }.uniq
+      @sport_disabled = ((@sport_filters.size == 1) and (@all_items.all?{ |ai| ai.sport == @sport_filters.first }))
+      @shoe_filters = @all_items.map{ |i| i.shoe }.delete_if{ |i| i.nil? }.uniq
+      @shoe_disabled = ((@shoe_filters.size == 1) and (@all_items.all?{ |ai| ai.shoe == @shoe_filters.first }))
+ 
       @items = @all_items.paginate(:page => params[:page])
       @base_filter = "Brands"
       @base_filter_id = params[:brand_id]
@@ -72,6 +102,15 @@ class ShoppingController < ApplicationController
     begin
       team_ids = League.find_by_id(params[:league_id]).teams.map{ |t| t.id }
       @all_items = Item.where(:team_id => team_ids)
+      @apparel_filters = @all_items.map{ |i| i.apparel }.delete_if{ |i| i.nil? }.uniq
+      @apparel_disabled = ((@apparel_filters.size == 1) and (@all_items.all?{ |ai| ai.apparel == @apparel_filters.first }))
+      @brand_filters = @all_items.map{ |i| i.brand }.uniq
+      @brand_disabled = ((@brand_filters.size == 1) and (@all_items.all?{ |ai| ai.brand == @brand_filters.first }))
+      @sport_filters = @all_items.map{ |i| i.sport }.uniq
+      @sport_disabled = ((@sport_filters.size == 1) and (@all_items.all?{ |ai| ai.sport == @sport_filters.first }))
+      @shoe_filters = @all_items.map{ |i| i.shoe }.delete_if{ |i| i.nil? }.uniq
+      @shoe_disabled = ((@shoe_filters.size == 1) and (@all_items.all?{ |ai| ai.shoe == @shoe_filters.first }))
+
       @items = @all_items.paginate(:page => params[:page])
       @base_filter = "Fan Gear"
       @base_filter_id = params[:league_id]

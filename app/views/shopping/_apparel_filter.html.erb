@@ -7,9 +7,10 @@
 
   <li class="button-holder">
     <ul class="no-bullets">
-      <% @all_items.map{ |i| i.apparel }.delete_if{ |i| i.nil? }.uniq.each do |apparel| %>
+      <% @apparel_filters.each do |apparel| %>
         <li>
-          <%= check_box_tag "apparel[]", apparel.id, false, :class => 'checkable', :id => "apparel_#{apparel.id}" %>
+          <%= check_box_tag "apparel[]", apparel.id, false, :class => 'checkable', :id => "apparel_#{apparel.id}",
+              :disabled => @apparel_disabled, :checked => @apparel_disabled %>
           <%= label_tag "apparel_#{apparel.id}", apparel.name.titleize, :style => "display:inline;" %>
         </li>
       <% end %>

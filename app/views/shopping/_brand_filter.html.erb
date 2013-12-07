@@ -7,9 +7,10 @@
 
   <li class="button-holder">
     <ul class="no-bullets">
-      <% @all_items.map{ |i| i.brand }.uniq.each do |brand| %>
+      <% @brand_filters.each do |brand| %>
         <li>
-          <%= check_box_tag "brands[]", brand.id, false, :class => 'checkable', :id => "brand_#{brand.id}" %>
+          <%= check_box_tag "brands[]", brand.id, false, :class => 'checkable', :id => "brand_#{brand.id}",
+              :disabled => @brand_disabled, :checked => @brand_disabled %>
           <%= label_tag "brand_#{brand.id}", brand.name.titleize, :style => "display:inline;" %>
         </li>
       <% end %>
