@@ -1,5 +1,6 @@
 * {
   margin: 0;
+  padding: 0;
 }
 html, body {
   height: 100%;
@@ -10,6 +11,7 @@ html, body {
   }
 }
 
+$topHeaderHeight: 80px;
 
 $btnPrimaryBackground: #26b3f7;
 //$btnPrimaryBackground: #555555;
@@ -55,6 +57,11 @@ $dropdownLinkColorHover:        $white !default;*/
 $dropdownLinkBackgroundHover:   $navbarBackground;
 
 $topMenuBackground:		 #e2e2e2;
+
+div.navbar-container {
+  width: 100%;
+  padding: 0px !important;
+}
  
 .navbar .btn.search_btn {
   margin-top: 0px;
@@ -62,6 +69,10 @@ $topMenuBackground:		 #e2e2e2;
 
 .navbar-inner {
   border: 1px solid lighten($navbarBackground, 5%) !important;
+  /* This is in order to prevent space on right side when scrolling on smaller screens */
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  margin-right: 0px !important;
 }
 
 .navbar ul > li > a {
@@ -200,6 +211,8 @@ a#page-title {
 }
 
 #main-wrapper {
+  width: 100%;
+  min-width: 940px;
   min-height: 100%;
   height: auto !important;
   height: 100%;
@@ -218,8 +231,6 @@ footer {
   background-repeat: repeat-x;
   color: #cfcfcf;
   min-width: 940px;
-  padding-right: 11px;
-  padding-left: 11px;
 /*  height: 200px; /* Remove this once we have content in footer */
   h5 {
     text-align: left;
@@ -300,20 +311,21 @@ div.tweet_container {
   //border-bottom: 1px dotted #2e2e2e;
 }
 
+div.center-float {
+  height: 100%;
+  width: 100%;
+  display: table;
+}
+
 div.search-container {
-  padding: 0px 0px 5px 15px;
-  display: inline-block;
-//  background: #fff asset-data-url("middle_gradient.png");
-//  background-repeat: repeat-x;
-//  border-top: 1px solid #e2e2e2;
-//  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.5);
-//  -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.5);
-//  box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
 }
 
 div.top-menu-container {
-  height: 60px;
-  background: #fff asset-data-url("middle_gradient_60.png");
+  height: $topHeaderHeight;
+  background: #fff asset-data-url("middle_gradient_80.png");
   background-repeat: repeat-x;
 //  border-top: 1px solid #e2e2e2;
   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.5);
@@ -322,7 +334,7 @@ div.top-menu-container {
 }
 
 div.top-menu-container-small {
-  height: 60px;
+  height: $topHeaderHeight;
   //position: fixed;
   top: 0;
   //background: #fff asset-data-url("middle_gradient_60.png");
@@ -335,7 +347,9 @@ div.top-menu-container-small {
 }
 
 div.header-container {
-  height: 60px;  
+  width: 100%;
+  padding: 0px !important;
+  height: $topHeaderHeight;  
   .span4, .span3, .span5 {
     margin: 0;
   }
@@ -348,22 +362,22 @@ div.logo-container {
 
 div.left-top-header {
   border-right: 1px solid darken($topMenuBackground, 10%);
-  height: 60px;
+  height: $topHeaderHeight;
 }
 
 div.right-top-header {
   border-left: 1px solid lighten($topMenuBackground, 10%);
-  height: 60px;
+  height: $topHeaderHeight;
 }
 
 div.middle-top-header {
   border-left: 1px solid lighten($topMenuBackground, 10%);
   border-right: 1px solid darken($topMenuBackground, 10%);
-  height: 60px;
+  height: $topHeaderHeight;
 }
 
 div.header-container {
-  background: #fff asset-data-url("middle_gradient_60.png");
+  background: #fff asset-data-url("middle_gradient_80.png");
   background-repeat: repeat-x;
 //  border-top: 1px solid #e2e2e2;
   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.5);
@@ -376,6 +390,7 @@ img#logo_img {
 }
 
 .carousel-caption {
+  font-family: 'Dosis', sans-serif;
   h3 {
     color: #cfcfcf;
   }
