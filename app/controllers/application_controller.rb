@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_filter :get_instagram_feed, :setup_menu
+  before_filter :setup_menu
 
   def get_instagram_feed
     @instagram = Instagram.user_recent_media("631846379", {:count => 9})

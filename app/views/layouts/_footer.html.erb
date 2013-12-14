@@ -13,11 +13,13 @@
 
       <div class="span4">
         <div class="social-content-container">
-          <h5 id="instagram-header">Photos</h5>
-          <% @instagram.each do |instagram| %>
-            <%= link_to( image_tag(instagram.images.standard_resolution.url, :style => 'width: 67px;'), 
-              instagram.images.standard_resolution.url, :target => 'blank' ) %>
-          <% end %>
+          <h5>All Social</h5>
+            <div class="social-icon-container">
+              <%= link_to( image_tag("facebook.png", :width => "35px"), "http://www.facebook.com/sportychickapparel", :target => "_blank") %>
+              <%= link_to( image_tag("twitter.png", :width => "35px"), "http://www.twitter.com/SportyChickApp", :target => "_blank") %>
+              <%= link_to( image_tag("pinterest.png", :width => "35px"), "http://www.pinterest.com/sportychickapp", :target => "_blank") %>
+              <%= link_to( image_tag("google-plus.png", :width => "35px"), "http://plus.google.com/112412750216026247054/", :target => "_blank") %>
+            </div>
         </div>
       </div>
 
